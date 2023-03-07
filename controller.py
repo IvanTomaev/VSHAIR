@@ -20,7 +20,7 @@ class controller:
         self.videoThread = threading.Thread(target=self.video)
         self.videoThread.start()
         try:
-            self.mainSocket.connect(('localhost', self.port))
+            self.mainSocket.connect(('192.168.43.202', self.port))
             print('connection established')
         except:
             print('error')
@@ -53,7 +53,7 @@ class controller:
     def video(self):
         ImageFile.LOAD_TRUNCATED_IMAGES = True
         time.sleep(1)
-        self.videoSocket.connect(('localhost', 4000))
+        self.videoSocket.connect(('192.168.43.202', 4000))
         data = b''
         payload_size = struct.calcsize("Q")
         print(payload_size)
